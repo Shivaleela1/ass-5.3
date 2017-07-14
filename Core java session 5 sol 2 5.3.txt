@@ -1,0 +1,97 @@
+package miniapp;
+
+public class Employee {
+
+	int empld=50813;
+	String empName="Shankar";
+	int total_leaves=30;
+	double total_salary;
+	int bal_leave;
+	
+	void calculate_balance_leaves() {
+	
+	}
+	
+	boolean avail_leave(int no_of_leaves,char type_of_leave){
+		return true;
+		
+	}
+	
+	void calculate_salary(){
+		
+	}
+}
+
+
+package miniapp;
+
+public class PermanentEmp extends Employee {
+	
+	int paid_leave=5;
+	int sick_leave=10;
+	int casual_leave=6;
+	double basic=80000;
+	double pfa=(12/100) * basic;
+	double hra=(50/100)* basic;
+	
+	void print_leave_details(){
+		System.out.println("Employee Shankar ID=50813: Leave details");
+		System.out.println("Paid leave: "+paid_leave);
+		System.out.println("Sick leave: "+sick_leave);
+		System.out.println("Casula leave: "+casual_leave);
+	}
+
+	void calculate_balance_leaves() {
+		 bal_leave=total_leaves - (paid_leave+sick_leave+casual_leave);
+		 System.out.println("bal_leave: "+bal_leave);
+		}
+	
+	boolean avail_leave(int no_of_leaves, char type_of_leave){
+		System.out.println("no_of_leaves of Permanent Employee: "+no_of_leaves+" " +"type_of_leave of Permanent Employee: "+type_of_leave);
+		return false;
+		}
+	
+	void calculate_salary(){
+		total_salary=basic+hra-pfa;
+		System.out.println("total salary: "+total_salary);
+		
+	}
+	}
+
+
+package miniapp;
+
+public class Run {
+ 
+	public static void main(String[] args) {
+		PermanentEmp obj1 = new PermanentEmp();
+		TemporaryEmp obj2 = new TemporaryEmp();
+		
+		obj1.print_leave_details();
+		obj1.calculate_balance_leaves();
+		obj1.avail_leave(7,'S');
+		obj2.avail_leave(4,'C');
+		obj1.calculate_salary();
+	}
+	}
+
+
+package miniapp;
+
+public class TemporaryEmp extends Employee {
+
+	void calculate_balance_leaves(){
+		
+		System.out.println(bal_leave);
+	}
+	
+	boolean avail_leave(int no_of_leaves, char type_of_leave){
+		System.out.println("no_of_leaves of Temporary Employee: "+no_of_leaves+" " +"type_of_leave of Temporary Employee: "+type_of_leave);
+		return false;
+		}
+	
+	void calculate_salary(){
+		System.out.println(total_salary);
+		
+	}
+}
