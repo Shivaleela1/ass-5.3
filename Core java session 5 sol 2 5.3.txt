@@ -1,14 +1,15 @@
 package miniapp;
 
-public class Employee {
+public class Employee {           
 
-	int empld=50813;
-	String empName="Shankar";
-	int total_leaves=30;
+	int empld= 50813;                        //defining properties of class Employee
+	String empName= "Shankar";
+	int total_leaves= 30;
 	double total_salary;
 	int bal_leave;
 	
-	void calculate_balance_leaves() {
+	//defining methods
+	void calculate_balance_leaves() {             
 	
 	}
 	
@@ -25,7 +26,7 @@ public class Employee {
 
 package miniapp;
 
-public class PermanentEmp extends Employee {
+public class PermanentEmp extends Employee {        //class which extends class Employee 
 	
 	int paid_leave=5;
 	int sick_leave=10;
@@ -33,14 +34,16 @@ public class PermanentEmp extends Employee {
 	double basic=80000;
 	double pfa=(12/100) * basic;
 	double hra=(50/100)* basic;
-	
-	void print_leave_details(){
+	 
+	void print_leave_details(){                       //defining methods
 		System.out.println("Employee Shankar ID=50813: Leave details");
 		System.out.println("Paid leave: "+paid_leave);
 		System.out.println("Sick leave: "+sick_leave);
 		System.out.println("Casula leave: "+casual_leave);
 	}
 
+          //implementing methods of class Employee
+	  
 	void calculate_balance_leaves() {
 		 bal_leave=total_leaves - (paid_leave+sick_leave+casual_leave);
 		 System.out.println("bal_leave: "+bal_leave);
@@ -64,11 +67,11 @@ package miniapp;
 public class Run {
  
 	public static void main(String[] args) {
-		PermanentEmp obj1 = new PermanentEmp();
-		TemporaryEmp obj2 = new TemporaryEmp();
+		PermanentEmp obj1 = new PermanentEmp();             //creating object of class PermanentEmp
+		TemporaryEmp obj2 = new TemporaryEmp(); 
 		
 		obj1.print_leave_details();
-		obj1.calculate_balance_leaves();
+		obj1.calculate_balance_leaves();                  //calling methods via objects
 		obj1.avail_leave(7,'S');
 		obj2.avail_leave(4,'C');
 		obj1.calculate_salary();
@@ -78,11 +81,11 @@ public class Run {
 
 package miniapp;
 
-public class TemporaryEmp extends Employee {
+public class TemporaryEmp extends Employee {              //class which extends class Employee
 
 	void calculate_balance_leaves(){
 		
-		System.out.println(bal_leave);
+		System.out.println(bal_leave);             //implementing methods of Employee
 	}
 	
 	boolean avail_leave(int no_of_leaves, char type_of_leave){
